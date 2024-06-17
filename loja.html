@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loja Virtual</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="orcamento.html">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="product-grid">
+            <!-- Produtos -->
+            <div class="product">
+                <img src="produto1.jpeg" alt="Produto 1">
+                <h2>Produto 1</h2>
+                <p>Descrição do produto 1.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 1', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto2.jpeg" alt="Produto 2">
+                <h2>Produto 2</h2>
+                <p>Descrição do produto 2.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 2', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto3.jpeg" alt="Produto 3">
+                <h2>Produto 3</h2>
+                <p>Descrição do produto 3.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 3', 200)">Adicionar ao Orçamento</button>
+            </div>
+
+            <div class="product">
+                <img src="produto4.jpeg" alt="Produto 4">
+                <h2>Produto 4</h2>
+                <p>Descrição do produto 4.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 4', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto5.jpeg" alt="Produto 5">
+                <h2>Produto 5</h2>
+                <p>Descrição do produto 5.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 5', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto6.jpeg" alt="Produto 6">
+                <h2>Produto 6</h2>
+                <p>Descrição do produto 6.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 3', 200)">Adicionar ao Orçamento</button>
+            </div>
+
+            <div class="product">
+                <img src="produto7.jpeg" alt="Produto 7">
+                <h2>Produto 7</h2>
+                <p>Descrição do produto 7.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 7', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto8.jpeg" alt="Produto 8">
+                <h2>Produto 8</h2>
+                <p>Descrição do produto 8.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 8', 200)">Adicionar ao Orçamento</button>
+            </div>
+            <div class="product">
+                <img src="produto9.jpeg" alt="Produto 9">
+                <h2>Produto 9</h2>
+                <p>Descrição do produto 9.</p>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarAoOrcamento('Produto 9', 200)">Adicionar ao Orçamento</button>
+            </div>
+
+
+            <!-- Adicione mais produtos conforme necessário -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Loja Virtual. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        function adicionarAoOrcamento(nome, preco) {
+            let orcamento = JSON.parse(localStorage.getItem('orcamento')) || [];
+            orcamento.push({nome, preco});
+            localStorage.setItem('orcamento', JSON.stringify(orcamento));
+            alert('Produto adicionado.');
+        }
+    </script>
+    <a href="https://wa.me/5531990841852" target="_blank">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+</body>
+</html>

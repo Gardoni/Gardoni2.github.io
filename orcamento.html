@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Orçamento</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="orcamento.html">Orçamento</a></li>
+                <li><a href="loja.html">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="orcamento">
+            <h2>Orçamento</h2>
+            <form id="orcamento-form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required><br><br>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required><br><br>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required><br><br>
+            </form>
+            <h3>Meu Pedido</h3>
+            <ul id="orcamento-lista"></ul>
+            <button onclick="enviarOrcamento()">Enviar Pedido</button>
+            <p>Taxa de entrega para Belo Horizonte e região R$ 25,00.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Loja Virtual. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarOrcamento();
+        });
+
+        function atualizarOrcamento() {
+            const lista = document.getElementById('orcamento-lista');
+            const orcamento = JSON.parse(localStorage.getItem('orcamento')) || [];
+            lista.innerHTML = '';
+            orcamento.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nome} - R$${item.preco.toFixed(2)}`;
+                lista.appendChild(li);
+            });
+        }
+
+        function enviarOrcamento() {
+            const nome = document.getElementById('nome').value;
+            const endereco = document.getElementById('endereco').value;
+            const telefone = document.getElementById('telefone').value;
+            const cep = document.getElementById('cep').value;
+            const orcamento = JSON.parse(localStorage.getItem('orcamento')) || [];
+
+            let total = orcamento.reduce((acc, item) => acc + item.preco, 0);
+            const totalCartao = total * 1.0+25; // Adiciona 3% de taxa para pagamento com cartão de crédito
+
+            const numeroWhatsApp = '5531990841852';
+            let mensagem = `Olá, meu pedido:%0A%0ANome: ${nome}%0AEndereço: ${endereco}%0ATelefone: ${telefone}%0ACEP: ${cep}%0A%0AItens:%0A`;
+            orcamento.forEach(item => {
+                mensagem += `- ${item.nome}: R$${item.preco.toFixed(2)}%0A`;
+            });
+            mensagem += `%0ATotal: R$${total.toFixed(2)}%0A Total + Taxa : R$${totalCartao.toFixed(2)}`;
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+    </script>
+    <a href="https://wa.me/5531990841852" target="_blank">
+        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+</body>
+</html>

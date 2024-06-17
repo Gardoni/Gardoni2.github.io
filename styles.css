@@ -1,0 +1,220 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para telas grandes (largura mínima de 769px) */
+@media (min-width: 769px) {
+    .listagem .listagem-item .imagem-produto:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+}
+
+/* Estilos para telas médias (largura máxima de 768px) */
+@media (max-width: 768px) {
+    .listagem .listagem-item .imagem-produto:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+}
+
+/* Estilos para telas pequenas (largura máxima de 600px) */
+@media (max-width: 600px) {
+    .content {
+        padding-bottom: 15vh; /* Ajuste conforme necessário para dispositivos móveis */
+    }
+    .add-to-cart {
+        width: 100%;
+        box-sizing: border-box; /* Garante que o preenchimento não aumente a largura total */
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Altera para uma coluna em telas pequenas */
+    }
+    .product {
+        padding: 20px; /* Ajusta o padding para telas menores */
+    }
+    header nav ul {
+        flex-direction: column; /* Ajusta o menu de navegação para colunas em telas pequenas */
+    }
+    header nav ul li {
+        display: block; /* Faz com que os itens do menu sejam exibidos como blocos */
+        margin-bottom: 10px; /* Adiciona espaço entre os itens do menu */
+    }
+    .footer-bar {
+        font-size: 0.8em; /* Reduz o tamanho da fonte no rodapé para telas pequenas */
+    }
+}
+
+/* Estilos gerais para a página */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product {
+    border: 1px solid #ccc; /* Opcional: borda para os produtos */
+    padding: 20px; /* Ajuste o valor conforme necessário */
+    text-align: center; /* Centraliza o conteúdo dentro de cada produto */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.footer-bar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Altere para relative ou remova a linha */
+    z-index: 1000;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.product h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product button {
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background-color: #555;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+#carrinho {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#carrinho h2 {
+    margin-bottom: 20px;
+}
+
+#carrinho-itens {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#carrinho-itens li {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+}
+
+#total {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative; /* Certifique-se de que a posição seja relativa */
+    bottom: 0;
+}
