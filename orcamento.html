@@ -73,16 +73,23 @@
             const orcamento = JSON.parse(localStorage.getItem('orcamento')) || [];
 
             let total = orcamento.reduce((acc, item) => acc + item.preco, 0);
-            const totalCartao = total * 1.0+25; // Adiciona 3% de taxa para pagamento com cartão de crédito
+            const totalCartao = total + 25; // Adiciona taxa de entrega
 
             const numeroWhatsApp = '5531990841852';
             let mensagem = `Olá, meu pedido:%0A%0ANome: ${nome}%0AEndereço: ${endereco}%0ATelefone: ${telefone}%0ACEP: ${cep}%0A%0AItens:%0A`;
             orcamento.forEach(item => {
                 mensagem += `- ${item.nome}: R$${item.preco.toFixed(2)}%0A`;
             });
-            mensagem += `%0ATotal: R$${total.toFixed(2)}%0A Total + Taxa : R$${totalCartao.toFixed(2)}`;
+            mensagem += `%0ATotal: R$${total.toFixed(2)}%0ATotal + Taxa: R$${totalCartao.toFixed(2)}`;
             const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
             window.open(url, '_blank');
+
+            // Limpa o formulário
+            document.getElementById('orcamento-form').reset();
+
+            // Limpa o orçamento no localStorage e atualiza a lista
+            localStorage.removeItem('orcamento');
+            atualizarOrcamento();
         }
     </script>
     <a href="https://wa.me/5531990841852" target="_blank">
