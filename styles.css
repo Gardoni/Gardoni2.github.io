@@ -118,7 +118,7 @@ header nav ul li a {
     color: white;
     text-decoration: none;
 }
-header nav ul li a:hover {
+header nav ul li a:hover {   /* Para mudar cor do menu quando passar mause */
     color: #e2eaee;
 }
 
