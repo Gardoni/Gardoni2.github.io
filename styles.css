@@ -173,14 +173,14 @@ form button {
     padding: 10px;
     font-size: 1em;
     color: white;
-    background-color: #333;
+    background-color: #3e8ecf;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: ##5b8a56;
 }
 
 #carrinho {
