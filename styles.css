@@ -118,6 +118,9 @@ header nav ul li a {
     color: white;
     text-decoration: none;
 }
+header nav ul li a:hover {
+    color: #e2eaee;
+}
 
 h1 {
     margin: 0;
